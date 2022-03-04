@@ -726,13 +726,13 @@ UserName.Size = UDim2.new(0, 145, 0, 34)
 UserName.Font = Enum.Font.SourceSans
 UserName.Text = ""
 UserName.TextColor3 = Color3.fromRGB(24, 24, 24)
-UserName.TextSize = 14.000
+UserName.TextSize = 26.000
 
 UICorner_58.Parent = UserName
 
 -- Scripts:
 
-local function IOEVBGL_fake_script() -- TC3lvls.LocalScript 
+local function LVOZBSP_fake_script() -- TC3lvls.LocalScript 
 	local script = Instance.new('LocalScript', TC3lvls)
 
 	local Players = game:GetService("Players")
@@ -785,6 +785,8 @@ local function IOEVBGL_fake_script() -- TC3lvls.LocalScript
 		end
 	end
 	
+	
+	
 	Players.PlayerRemoving:Connect(function(plr)
 		for i, v in pairs(Frame:GetChildren()) do 
 			if v.Text == plr.Name then
@@ -794,12 +796,18 @@ local function IOEVBGL_fake_script() -- TC3lvls.LocalScript
 	end)
 	
 	while true do 
-		wait(2)
+		wait(0.1)
 		Refresh()
 	end
+	
+	game:GetService("UserInputService").InputBegan:Connect(function(inpt)
+		if string.len(Box.Text) >= 1 then
+			Box.Text = string.sub(Box.Text, 1, 1)
+		end
+	end)
 end
-coroutine.wrap(IOEVBGL_fake_script)()
-local function OXPJ_fake_script() -- TC3lvls.Neon 
+coroutine.wrap(LVOZBSP_fake_script)()
+local function BOQYKI_fake_script() -- TC3lvls.Neon 
 	local script = Instance.new('LocalScript', TC3lvls)
 
 	local Frame = script.Parent.Frame
@@ -809,4 +817,4 @@ local function OXPJ_fake_script() -- TC3lvls.Neon
 		Frame.BorderColor = BrickColor.Random()
 	end
 end
-coroutine.wrap(OXPJ_fake_script)()
+coroutine.wrap(BOQYKI_fake_script)()
