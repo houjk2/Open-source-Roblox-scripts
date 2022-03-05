@@ -732,7 +732,7 @@ UICorner_58.Parent = UserName
 
 -- Scripts:
 
-local function LVOZBSP_fake_script() -- TC3lvls.LocalScript 
+local function QUHHXWY_fake_script() -- TC3lvls.LocalScript 
 	local script = Instance.new('LocalScript', TC3lvls)
 
 	local Players = game:GetService("Players")
@@ -749,8 +749,13 @@ local function LVOZBSP_fake_script() -- TC3lvls.LocalScript
 		end
 	end)
 	
-	
-	
+	function startswith(startswith, thestring)
+		if string.sub(thestring, 1, string.len(startswith)) == startswith then
+			return true
+		else
+			return false
+		end
+	end
 	
 	function Refresh()
 		for i3, v3 in pairs(Frame:GetChildren()) do 
@@ -759,7 +764,6 @@ local function LVOZBSP_fake_script() -- TC3lvls.LocalScript
 		
 		
 		if Box.Text == "" then
-			print("Text is nil")
 			for i, v in pairs(Players:GetPlayers()) do 
 				local lvl = v.PlayerValues.Level.Value
 				for i2, v2 in pairs(Frame:GetChildren()) do 
@@ -770,10 +774,9 @@ local function LVOZBSP_fake_script() -- TC3lvls.LocalScript
 				end
 			end
 		else 
-			local First = string.sub(Box.Text, 1, 1)
 			for i, v in pairs(Players:GetPlayers()) do 
 				local lvl = v.PlayerValues.Level.Value
-				if string.sub(v.Name, 1, 1) == First then
+				if startswith(Box.Text, v.Name) == true then
 					for i2, v2 in pairs(Frame:GetChildren()) do 
 						if v2.Text == "Label" then
 							v2.Text = v.Name.." - "..lvl
@@ -800,14 +803,9 @@ local function LVOZBSP_fake_script() -- TC3lvls.LocalScript
 		Refresh()
 	end
 	
-	game:GetService("UserInputService").InputBegan:Connect(function(inpt)
-		if string.len(Box.Text) >= 1 then
-			Box.Text = string.sub(Box.Text, 1, 1)
-		end
-	end)
 end
-coroutine.wrap(LVOZBSP_fake_script)()
-local function BOQYKI_fake_script() -- TC3lvls.Neon 
+coroutine.wrap(QUHHXWY_fake_script)()
+local function HKRDQU_fake_script() -- TC3lvls.Neon 
 	local script = Instance.new('LocalScript', TC3lvls)
 
 	local Frame = script.Parent.Frame
@@ -817,4 +815,4 @@ local function BOQYKI_fake_script() -- TC3lvls.Neon
 		Frame.BorderColor = BrickColor.Random()
 	end
 end
-coroutine.wrap(BOQYKI_fake_script)()
+coroutine.wrap(HKRDQU_fake_script)()
