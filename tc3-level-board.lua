@@ -792,7 +792,7 @@ local function QUHHXWY_fake_script() -- TC3lvls.LocalScript
 	
 	Players.PlayerRemoving:Connect(function(plr)
 		for i, v in pairs(Frame:GetChildren()) do 
-			if v.Text == plr.Name then
+			if string.sub(v.Text, 1, string.len(v.Text) - 3) == plr.Name then
 				v.Text = "Label"
 			end
 		end
